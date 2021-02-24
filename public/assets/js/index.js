@@ -67,9 +67,11 @@ const renderActiveNote = () => {
 
 const handleNoteSave = () => {
   const newNote = {
+    id: noteId.value,
     title: noteTitle.value,
     text: noteText.value,
   };
+  show(savenNoteBtn)
   saveNote(newNote).then(() => {
     getAndRenderNotes();
     renderActiveNote();
@@ -118,7 +120,7 @@ const handleRenderSaveBtn = () => {
 // Render the list of note titles
 const renderNoteList = async (notes) => {
   let jsonNotes = await notes.json();
-  if (window.location.pathname === "/notes.html") {
+  if (window.location.pathname === "/assets/notes.html") {
     noteList.forEach((el) => (el.innerHTML = ""));
   }
 
@@ -163,7 +165,7 @@ const renderNoteList = async (notes) => {
     noteListItems.push(li);
   });
 
-  if (window.location.pathname === "/notes.html") {
+  if (window.location.pathname === "/assets/notes.html") {
     noteListItems.forEach((note) => noteList[0].append(note));
   }
 };
@@ -171,7 +173,7 @@ const renderNoteList = async (notes) => {
 // Gets notes from the db and renders them to the sidebar
 const getAndRenderNotes = () => getNotes().then(renderNoteList);
 
-if (window.location.pathname === "/notes.html") {
+if (window.location.pathname === "/assets/notes.html") {
   saveNoteBtn.addEventListener("click", handleNoteSave);
   newNoteBtn.addEventListener("click", handleNewNoteView);
   noteTitle.addEventListener("keyup", handleRenderSaveBtn);
