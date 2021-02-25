@@ -9,7 +9,7 @@ The app uses HTML and CSS for the front end and uses the following Node Package 
 
 ## Mock up
 
-![Saved notes are displayed on left, new notes are entered on right]()
+![Saved notes are displayed on left, new notes are entered on right](https://github.com/catherinebshaw/Note-Taker/blob/main/public/assets/Note-Taker.png)
 
 
 ## Live Site
