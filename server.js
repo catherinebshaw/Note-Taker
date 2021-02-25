@@ -14,6 +14,12 @@ app.use( express.static('public') )
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
+
+// for Heroku
+app.get("/", function(req, res) {
+    res.json(path.join(__direname, "/public/index.html"))
+});
+
 //Data - get previous notes
 app.get("/api/notes",function(req, res) {
     console.log( `getting previous notes.. ${notes} `)
